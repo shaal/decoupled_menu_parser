@@ -19,4 +19,11 @@ function parse(json: string, menuID?: string): Menu | Menu[] {
   return denormalize(JSON.parse(json), menuID);
 }
 
-export { parse, denormalize, MenuInterface, MenuElementInterface, NormalizedMenuInterface };
+export {
+  parse,
+  denormalize,
+}
+
+export type {
+  MenuInterface, MenuElementInterface, NormalizedMenuInterface
+}

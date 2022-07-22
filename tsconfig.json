@@ -8,6 +8,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "skipLibCheck": true,
   }
 }
