@@ -1,6 +1,6 @@
 import { denormalize } from 'linkset';
 import type { LinkInterface, NormalizedLinksetInterface, LinksetInterface } from 'linkset';
-import type { TargetAttributeValue } from 'linkset/src/core/link';
+import type { TargetAttributeValue } from 'linkset/dist/core/link';
 import { buildTree, MenuElement, MenuLink } from './menu-element';
 import type { MenuElementInterface } from './menu-element';
 
