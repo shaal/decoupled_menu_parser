@@ -3,12 +3,13 @@
   "homepage": "https://www.drupal.org/project/decoupled_menu_parser",
   "repository": "https://git.drupalcode.org/project/decoupled_menu_parser.git",
   "license": "GPL-2.0-or-later",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf ./dist && tsc -b tsconfig.json",
     "lint": "eslint . --ext .ts --max-warnings=0 --ignore-path=.gitignore",
-    "test": "jest"
+    "test": "jest",
+    "publish": "yarn build && npm publish"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.0",
