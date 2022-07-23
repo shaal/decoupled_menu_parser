@@ -8,8 +8,8 @@ export interface MenuElementInterface {
 
 export type MenuLink = {
   attributes: {
-    ['drupal-menu-machine-name']: string[];
-    ['drupal-menu-hierarchy']: string[];
+    ['machine-name']: string[];
+    ['hierarchy']: string[];
   };
 } & LinkInterface;
 
@@ -25,6 +25,19 @@ export class MenuElement implements MenuElementInterface {
   }
 }
 
+
+export function hierarchyCompare(a: string[], b: string[]): number {
+  if (a.length === 0 && b.length === 0) return 0; // Nothing to sort
+  if (a.length === 0 && b.length > 0) return -1; // End of A hierarchy
+  if (a.length > 0 && b.length === 0) return 1;  // End of B hierarchy
+  // Compare the end of both hierarchies
+  if (a.length === 1 && b.length === 1 ) return parseInt(a[0]) - parseInt(b[0]);
+  // If the top levels are equal, compare the children
+  if (a[0] === b[0]) return hierarchyCompare(a.slice(1), b.slice(1))
+  // Compare the top levels
+  return parseInt(a[0]) - parseInt(b[0]);
+}
+
 export function buildTree(links: MenuLink[]): MenuElement[] {
   // If there aren't any links or there is only one link, take a shortcut and return early.
   if (links.length < 2) {
@@ -32,16 +45,14 @@ export function buildTree(links: MenuLink[]): MenuElement[] {
   }
   // Sorting by the hierarchy key is essential to capture link order and for the algorithm below to correctly build
   // subtrees.
-  links.sort((a: MenuLink, b: MenuLink): number => {
-    return a.attributes['drupal-menu-hierarchy'][0].localeCompare(b.attributes['drupal-menu-hierarchy'][0]);
-  });
+  links.sort((a: MenuLink, b: MenuLink): number => hierarchyCompare(a.attributes['hierarchy'], b.attributes['hierarchy']));
   const elements = [];
   let last;
   let children = [];
   do {
     const curr = links.shift();
     if (last) {
-      if (curr.attributes['drupal-menu-hierarchy'][0].length > last.attributes['drupal-menu-hierarchy'][0].length) {
+      if (curr.attributes['hierarchy'].length > last.attributes['hierarchy'].length) {
         children.push(curr);
       } else {
         elements.push(new MenuElement(last, children));

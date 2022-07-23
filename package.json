@@ -3,7 +3,7 @@
   "homepage": "https://www.drupal.org/project/decoupled_menu_parser",
   "repository": "https://git.drupalcode.org/project/decoupled_menu_parser.git",
   "license": "GPL-2.0-or-later",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf ./dist && tsc -b tsconfig.json",

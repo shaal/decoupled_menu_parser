@@ -90,9 +90,9 @@ export class Menu implements MenuInterface {
     const linkset = denormalize(normalized);
     const machineNames: string[] = [];
     if (!menuID) {
-      linkset.linksWithAttribute('drupal-menu-machine-name').elements.forEach((link: LinkInterface) => {
-        if (!machineNames.includes(link.attributes['drupal-menu-machine-name'][0])) {
-          machineNames.push(link.attributes['drupal-menu-machine-name'][0]);
+      linkset.linksWithAttribute('machine-name').elements.forEach((link: LinkInterface) => {
+        if (!machineNames.includes(link.attributes['machine-name'][0])) {
+          machineNames.push(link.attributes['machine-name'][0]);
         }
       });
     } else {
@@ -101,7 +101,7 @@ export class Menu implements MenuInterface {
     const menus = machineNames.map((machineName) => {
       return new Menu(
         machineName,
-        linkset.linksWithAttributeValue('drupal-menu-machine-name', machineName) as unknown as MenuLinksetInterface,
+        linkset.linksWithAttributeValue('machine-name', machineName) as unknown as MenuLinksetInterface,
       );
     });
     return menuID ? menus.shift() : menus;
