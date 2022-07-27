@@ -45,8 +45,8 @@ describe('denormalize()', () => {
   });
   it('should return an account menu and a main menu when parsing the contextual menu', () => {
     const menus = denormalize(JSON.parse(examples['Contextual menu'])) as Array<MenuInterface>;
-    expect(menus[0].tree[0].link.attributes['drupal-menu-machine-name'][0]).toBe('account');
-    expect(menus[1].tree[0].link.attributes['drupal-menu-machine-name'][0]).toBe('main');
+    expect(menus[0].tree[0].link.attributes['machine-name'][0]).toBe('account');
+    expect(menus[1].tree[0].link.attributes['machine-name'][0]).toBe('main');
   });
   it('should return a correctly ordered menu from the contextual account menu', () => {
     const menu = denormalize(JSON.parse(examples['Contextual menu']), 'account') as MenuInterface;
@@ -55,8 +55,8 @@ describe('denormalize()', () => {
   });
   it('should be iterable and re-iterable', () => {
     const menus = denormalize(JSON.parse(examples['Main menu']), 'main');
-    expect(Array.from(menus as Menu).length).toBe(3);
-    expect(Array.from(menus as Menu).length).toBe(3);
+    expect(Array.from(menus as Menu).length).toBe(4);
+    expect(Array.from(menus as Menu).length).toBe(4);
   });
 });
 

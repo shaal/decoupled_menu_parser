@@ -25,7 +25,6 @@ export class MenuElement implements MenuElementInterface {
   }
 }
 
-
 export function hierarchyCompare(a: string[], b: string[]): number {
   if (a.length === 0 && b.length === 0) return 0; // Nothing to sort
   if (a.length === 0 && b.length > 0) return -1; // End of A hierarchy

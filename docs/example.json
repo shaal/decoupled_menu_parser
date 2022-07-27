@@ -6,22 +6,26 @@
         {
           "href": "/",
           "title": "Home",
-          "drupal-menu-id": ["main"],
-          "drupal-menu-hierarchy": [".000"]
+          "hierarchy": ["0"],
+          "machine-name": ["main"]
         },
         {
           "href": "/about",
           "title": "About us",
-          "drupal-menu": [{
-            "hierarchy": ".001"
-          }]
+          "hierarchy": ["1"],
+          "machine-name": ["main"]
         },
         {
           "href": "/about/name",
           "title": "Our name",
-          "drupal-menu": [{
-            "hierarchy": ".001.000"
-          }]
+          "hierarchy": ["1","0"],
+          "machine-name": ["main"]
+        },
+        {
+          "href": "/about/name/history",
+          "title": "Our name's history",
+          "hierarchy": ["1","0", "0"],
+          "machine-name": ["main"]
         }
       ]
     }
