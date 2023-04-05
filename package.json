@@ -1,9 +1,9 @@
 {
-  "name": "decoupled-menu-parser",
+  "name": "decoupled-menu-parser-es6",
   "homepage": "https://www.drupal.org/project/decoupled_menu_parser",
   "repository": "https://git.drupalcode.org/project/decoupled_menu_parser.git",
   "license": "GPL-2.0-or-later",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf ./dist && tsc -b tsconfig.json",
